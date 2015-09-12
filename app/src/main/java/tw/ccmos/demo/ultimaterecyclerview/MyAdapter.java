@@ -34,7 +34,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.label.setText(dataSet.get(position));
+        String data = dataSet.get(position);
+        if(data.isEmpty()) {
+            holder.label.setText("正在載入中...");
+        } else {
+            holder.label.setText(data);
+        }
     }
 
     @Override
